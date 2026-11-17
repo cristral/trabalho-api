@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cinzel', serif;
+    color: #e0d5c1;
+    min-height: 100vh;
+    background: #0d0a14 url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1920&auto=format&fit=crop') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+/* Camada escura mística */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(15, 10, 25, 0.8) 0%, rgba(5, 2, 10, 0.95) 100%);
+    z-index: 0;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.title {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 2.8rem;
+    color: #f3d280;
+    text-shadow: 0 0 15px rgba(243, 210, 128, 0.4);
+}
+
+.subtitle {
+    color: #a395b8;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+.header-actions {
+    margin-top: 20px;
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #7c2d12, #b45309);
+    color: #fef08a;
+    border: 1px solid #f59e0b;
+    box-shadow: 0 0 12px rgba(180, 83, 9, 0.5);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #9a3412, #d97706);
+    box-shadow: 0 0 18px rgba(245, 158, 11, 0.8);
+    transform: translateY(-2px);
+}
+
+/* Container do Quadro de Personagens */
+.card-container {
+    background: rgba(20, 15, 30, 0.85);
+    border: 2px solid #6b5220;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(184, 134, 11, 0.15);
+    border-radius: 12px;
+    padding: 25px;
+    backdrop-filter: blur(5px);
+}
+
+.card-container h2 {
+    color: #f3d280;
+    border-bottom: 1px solid #4a3818;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+/* Grid de Cards */
+.character-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Card Individual do Personagem */
+.char-card {
+    background: rgba(30, 20, 45, 0.75);
+    border: 1px solid #523e1b;
+    border-left: 4px solid #f3d280;
+    border-radius: 8px;
+    padding: 18px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.char-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+}
+
+.char-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.char-name {
+    font-size: 1.3rem;
+    color: #f3d280;
+    font-weight: 700;
+}
+
+.char-badge {
+    background: #3b0764;
+    color: #c084fc;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    border: 1px solid #7e22ce;
+}
+
+.char-hp {
+    color: #ef4444;
+    font-weight: bold;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+.char-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    font-size: 0.8rem;
+    color: #d8b4fe;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.char-actions {
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+}
+
+.btn-edit { background: #1e3a8a; color: #93c5fd; text-decoration: none; }
+.btn-delete { background: #881337; color: #fca5a5; }
+
+.btn-edit:hover { background: #1e40af; }
+.btn-delete:hover { background: #9f1239; }
+
+.list-message {
+    color: #a395b8;
+    grid-column: 1 / -1;
+    text-align: center;
+}
+
+.character-dialog {
+    width: min(560px, calc(100% - 32px));
+    max-height: 90vh;
+    margin: auto;
+    padding: 24px;
+    color: #e0d5c1;
+    background: #17111f;
+    border: 2px solid #6b5220;
+    border-radius: 12px;
+}
+
+.character-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.character-dialog form {
+    display: grid;
+    gap: 14px;
+}
+
+.dialog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dialog-header h2,
+.character-dialog h3 {
+    color: #f3d280;
+}
+
+.character-dialog label {
+    display: grid;
+    gap: 5px;
+    color: #d8b4fe;
+}
+
+.character-dialog input {
+    width: 100%;
+    padding: 9px;
+    color: #e0d5c1;
+    background: #0d0a14;
+    border: 1px solid #523e1b;
+    border-radius: 5px;
+    font: inherit;
+}
+
+.form-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.form-error {
+    color: #fca5a5;
+}
